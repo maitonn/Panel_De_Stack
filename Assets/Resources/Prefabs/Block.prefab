@@ -25,7 +25,8 @@ GameObject:
   - component: {fileID: 114088225879583602}
   - component: {fileID: 54718148406542630}
   - component: {fileID: 114362169992070230}
-  m_Layer: 0
+  - component: {fileID: 114765375018271756}
+  m_Layer: 2
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -40,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1098512911424704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
+  m_LocalScale: {x: 0.95, y: 1, z: 0.95}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,13 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199a65ff29ce6fb44b0bd5cfa174c585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockType: 2
+  BlockType: 1
   color:
   - {r: 0.8897059, g: 0.10467128, b: 0.10467128, a: 0}
   - {r: 0, g: 0.17241383, b: 1, a: 0}
-  - {r: 0.020599067, g: 0.9338235, b: 0.5559375, a: 0}
+  - {r: 0.053549763, g: 0.7058823, b: 0, a: 0}
   - {r: 0.9558824, g: 0.18274222, b: 0.64662623, a: 0}
-  - {r: 0.7794118, g: 0.7794118, b: 0.7794118, a: 0}
+  - {r: 0.021410054, g: 0.8920357, b: 0.9705882, a: 0}
 --- !u!114 &114362169992070230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,3 +147,14 @@ MonoBehaviour:
   - {x: -1, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   DestroyNum: 2
+--- !u!114 &114765375018271756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098512911424704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ed1292db098474a8ffeb02ec1cdb6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,9 +12,7 @@ public class Block : MonoBehaviour {
 	public Color[] color;
 	// 自身のブロックタイプに応じて色を変える
 	void Start()
-	{
-		
-		
+	{	
 		GetComponent<Renderer>().material.color = color[BlockType];
 	}
 }

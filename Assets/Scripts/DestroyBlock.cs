@@ -46,7 +46,6 @@ public class DestroyBlock : MonoBehaviour
 		}
 		if (list.Count >= DestroyNum)
 		{
-			Debug.Log(list.Count);
 			foreach (GameObject obj in list)
 			{
 				// 削除
