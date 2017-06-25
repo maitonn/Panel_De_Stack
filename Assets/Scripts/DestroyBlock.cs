@@ -44,8 +44,10 @@ public class DestroyBlock : MonoBehaviour
 		{
 			list.Add(this.gameObject);
 		}
+
 		if (list.Count >= DestroyNum)
 		{
+			GameObject.Find ("SE").GetComponent<SEManager> ().PlaySE (1);
 			foreach (GameObject obj in list)
 			{
 				// 削除
@@ -53,7 +55,6 @@ public class DestroyBlock : MonoBehaviour
 			}
 		}
 		list.Clear();
-		CheckDestroy();
 	}
 	public void CheckDestroy()
 	{

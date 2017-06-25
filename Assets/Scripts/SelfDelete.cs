@@ -11,7 +11,6 @@ public class SelfDelete : MonoBehaviour {
 		text = GetComponent<Text> ();
 	}
 	void Update () {
-		Debug.Log (time);
 		time += Time.deltaTime;
 		Color color = text.color;
 		color.a =  1- time / selfDeleteTime;

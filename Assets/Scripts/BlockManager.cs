@@ -24,21 +24,24 @@ public class BlockManager : MonoBehaviour {
 	GameObject nextFallBlock;
 	Vector3 standardFallPos = Vector3.zero;	// 初期落下地点
 	[SerializeField] Vector3 nextFallPos;
+	Vector3 saveNextFallPos = Vector3.zero;
 	ScoreManager scoreManager;		// スコアマネージャー
 	GameManager gameManager;
 	[SerializeField] float maxFallScore = 200;
 	[SerializeField] int oneLineScore = 1000;
 	float dropTime = 0;
 	private float prevMaxHeight = 0;
-
+	SEManager p_seManager;
 	int climb = 0; // どれだけ登っているか
 
 	const RigidbodyConstraints FALL = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 	const RigidbodyConstraints NOT_FALL = RigidbodyConstraints.FreezeAll;
 	// Use this for initialization
 	void Start () {
+		saveNextFallPos = nextFallPos;
 		Canvas = GameObject.Find ("Canvas");
 		GameObject manager = GameObject.FindWithTag ("GameController");
+		p_seManager = GameObject.Find ("SE").GetComponent<SEManager> ();
 		gameManager = manager.GetComponent<GameManager> ();
 		scoreManager = manager.GetComponent<ScoreManager> ();
 		Initialize();
@@ -59,6 +62,7 @@ public class BlockManager : MonoBehaviour {
 		climb = 0;
 		prevMaxHeight = 0;
 		standardFallPos = new Vector3((int)(Width / 2), (int)Height, 0);
+		nextFallPos = saveNextFallPos;
 		// 最初にブロック生成するはする。
 		for (int w = 0; w < Width; ++w)
 		{
@@ -156,8 +160,10 @@ public class BlockManager : MonoBehaviour {
 			gameManager.FinishGame ();
 			return;
 		}
+		// ライン揃えたボーナス
 		if (prevMaxHeight < min) {
 			prevMaxHeight = min;
+			p_seManager.PlaySE (2);
 			scoreManager.AddScore (oneLineScore);
 			ViewOneLineScore (pos);
 		}

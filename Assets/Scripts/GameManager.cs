@@ -40,9 +40,14 @@ public class GameManager : MonoBehaviour {
 		blockManager.isFinish = true;
 		isGame = false;
 		FinishUI.SetActive (true);
+		EventSystem.current.SetSelectedGameObject (null);
+		StartCoroutine (ForceRestart());
+
+	}
+	IEnumerator ForceRestart(){
+		yield return new WaitForSeconds (1.0f);
 		GameObject obj = FinishUI.transform.Find ("Restart").gameObject;
 		EventSystem.current.SetSelectedGameObject (obj);
-
 	}
 
 	/// <summary>
@@ -59,6 +64,7 @@ public class GameManager : MonoBehaviour {
 	/// メインメニュー表示する
 	/// </summary>
 	public void MainMenue(){
+		
 		StartMenueUI.SetActive (true);
 		FinishUI.SetActive (false);
 		blockManager.isFinish = true;
